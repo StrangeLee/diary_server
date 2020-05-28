@@ -1,6 +1,7 @@
 package com.strange.diary_server.controller;
 
 import com.strange.diary_server.entity.Diary;
+import com.strange.diary_server.entity.Todo;
 import com.strange.diary_server.model.response.ListResult;
 import com.strange.diary_server.model.response.SingleResult;
 import com.strange.diary_server.repo.DiaryRepo;

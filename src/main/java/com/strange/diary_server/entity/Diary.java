@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,21 +22,24 @@ public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column(name = "title", length = 30, nullable = false)
-    public String title;
+    private String title;
 
     @Column(name = "content", columnDefinition = "TEXT", nullable = false)
-    public String content;
+    private String content;
 
     @Column(name = "weather", length = 30, nullable = true)
-    public String weather;
+    private String weather;
 
     @Column(name = "location", length = 70, nullable = true)
-    public String location;
+    private String location;
 
     @Column(name = "upload_date", nullable = false)
-    public LocalDateTime uploadDate;
+    private LocalDateTime uploadDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "diary")
+    private Collection<Todo> todo;
 
 }
